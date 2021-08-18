@@ -80,7 +80,7 @@ public class AssessController {
 	public ResponseEntity<Department> deleteData(@PathVariable("depId") int depId) {
 		
 		Optional<Department> depOut =service.findById(depId);
-		if(depOut.isEmpty()) {
+		if(!depOut.isPresent()) {
 			ResponseErrorClass err = new ResponseErrorClass("NO Record with id "+depId);
 			throw err;
 		
